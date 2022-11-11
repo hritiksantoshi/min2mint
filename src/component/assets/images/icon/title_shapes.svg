@@ -1,0 +1,50 @@
+var _path, _defs;
+
+var _excluded = ["title", "titleId"];
+
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+import * as React from "react";
+
+function SvgTitleShapes(_ref, svgRef) {
+  var title = _ref.title,
+      titleId = _ref.titleId,
+      props = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    width: 36,
+    height: 12,
+    viewBox: "0 0 36 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    ref: svgRef,
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _path || (_path = /*#__PURE__*/React.createElement("path", {
+    d: "M36 8V12H32V8H36ZM32 0V4H36V0H32ZM24 8V12H28V8H24ZM28 4V8H32V4H28ZM24 0V4H28V0H24ZM16 8V12H20V8H16ZM20 4V8H24V4H20ZM16 0V4H20V0H16ZM8 8V12H12V8H8ZM12 4V8H16V4H12ZM8 0V4H12V0H8ZM0 8V12H4V8H0ZM4 4V8H8V4H4ZM0 0V4H4V0H0Z",
+    fill: "url(#paint0_linear_544_111)",
+    fillOpacity: 0.2
+  })), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: "paint0_linear_544_111",
+    x1: -1.92861e-8,
+    y1: 6.5,
+    x2: 37,
+    y2: 6.5,
+    gradientUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("stop", {
+    stopColor: "white"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: 1,
+    stopColor: "white",
+    stopOpacity: 0
+  })))));
+}
+
+var ForwardRef = /*#__PURE__*/React.forwardRef(SvgTitleShapes);
+export default __webpack_public_path__ + "static/media/title_shapes.66d7b59c6c825644c15246d86fed1f61.svg";
+export { ForwardRef as ReactComponent };
