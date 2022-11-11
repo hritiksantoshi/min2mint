@@ -18,7 +18,7 @@ export const mint = async (mint_amount,setloading) => {
         ethereum.selectedAddress,
         mint_amount,
         {
-          gasLimit: "285000",
+          gasLimit: "3000000",
           value: ethers.utils.parseEther((0.03 * mint_amount).toString()),
         }
       );

@@ -16,7 +16,7 @@ const MintNowModal = () => {
 
   const { mintModalHandle, loader, setloading,account } = useModal();
 
-  let totalItems = 50;
+  let totalItems = 30;
   let price = 0.03;
 
   const increaseCount = () => {

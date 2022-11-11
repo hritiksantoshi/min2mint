@@ -31,7 +31,7 @@ const Banner = () => {
             <div className="bithu_v1_baner_left">
               <h2>Crazy Meta 🎯 NFT collections</h2>
               <h3>
-                <span className="count">{remaining}</span> / 50 Minted
+                <span className="count">{remaining}</span> / 30 Minted
               </h3>
               <div className="sweet-loading"></div>
               <div className="banner_buttons">
