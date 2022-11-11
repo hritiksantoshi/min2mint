@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <meta charset="utf-8" />
         <title>
           {" "}
-          BlockTech - NFT Minting/Collection Landing Page React-Nextjs Template
+          Mine2mint
         </title>
         <meta name="description" content="" />
         <link rel="icon" type="image/png" href={favIcon} />
