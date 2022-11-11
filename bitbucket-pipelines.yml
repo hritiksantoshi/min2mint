@@ -11,8 +11,8 @@ pipelines:
           caches:
             - node
           script:
-            - npm install --legacy-peer-deps
-			- CI=false npm run build
+            - npm install -f
+            - CI=false npm run build
           artifacts:
             - build/**
       - step:
