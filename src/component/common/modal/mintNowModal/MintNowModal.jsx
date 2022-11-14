@@ -174,7 +174,7 @@ const MintNowModal = () => {
                       <button
                         onClick={decreaseCount}
                       >
-                        -
+                       <h2> -</h2>
                       </button>
                       <input
                         type="text"
@@ -182,7 +182,7 @@ const MintNowModal = () => {
                         value={count}
                         onChange={onChangeCount}
                       />
-                      <button onClick={() => increaseCount()}>+</button>
+                      <button onClick={() => increaseCount()}><h2>+</h2></button>
                     </div>
                     <h5>
                       <span>{count * price}</span> ETH

@@ -171,7 +171,7 @@ const MintModalStyleWrapper = styled.div`
             font-family: "Bakbak One";
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 20px;
             line-height: 22px;
             text-align: center;
             text-transform: uppercase;

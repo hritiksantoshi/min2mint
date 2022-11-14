@@ -32,7 +32,7 @@ const Banner = () => {
       const res = await axios(config);
       let total = (res.data.pin_count-1)/2;
       setCount(total);
-       console.log((res.data),"axios"); 
+      //  console.log((res.data),"axios"); 
     } catch (error) {
       console.log(error);
     }  

@@ -34,7 +34,7 @@ export const Faq = () => {
             <Accordion className="faq_questions">
               {data?.map((item, i) => (
                 <AccordionItem key={i}>
-                  <AccordionTitle handleExpand={handleExpand}>
+                  <AccordionTitle>
                     <h5>{item.title}</h5>
                     <IconWrapper>
                       <OpenIcon>
@@ -45,7 +45,7 @@ export const Faq = () => {
                       </CloseIcon>
                     </IconWrapper>
                   </AccordionTitle>
-                  <AccordionBody>
+                  <AccordionBody >
                     <p>{item.text}</p>
                   </AccordionBody>
                 </AccordionItem>

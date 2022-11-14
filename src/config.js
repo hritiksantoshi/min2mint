@@ -33,7 +33,7 @@ export const getBalance = async (address) =>{
         method:'eth_getBalance',
         params: [address, 'latest']});
     
-    console.log(ethers.utils.formatEther(Balance));
+    // console.log(ethers.utils.formatEther(Balance));
     return ethers.utils.formatEther(Balance); 
 }
 

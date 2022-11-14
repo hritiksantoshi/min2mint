@@ -12,27 +12,27 @@ import {
   const data = [
     {
       thumb: openseaIcon,
-      url: "#",
+      url: "https://opensea.io/login",
     },
     {
       icon: <FaTwitter />,
-      url: "#",
+      url: "https://twitter.com/",
     },
     {
       icon: <FaLinkedinIn />,
-      url: "#",
+      url: "https://www.linkedin.com/login",
     },
     {
       icon: <FaFacebook />,
-      url: "#",
+      url: "https://www.facebook.com/",
     },
     {
       icon: <FaInstagram />,
-      url: "#",
+      url: "https://www.instagram.com/",
     },
     {
       icon: <FaTelegramPlane />,
-      url: "#",
+      url: "https://web.telegram.org/?legacy=1#/login",
     },
     {
       thumb: mediumIcon,

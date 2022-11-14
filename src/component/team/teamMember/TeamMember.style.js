@@ -34,7 +34,7 @@ const TeamMemberStyleWrapper = styled.article`
   .team_social_icon {
     width: 100%;
     position: absolute;
-    bottom: 0px;
+    bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,6 +53,7 @@ const TeamMemberStyleWrapper = styled.article`
         background: #0f181d;
         opacity: 0;
         transition: 0.4s;
+        padding-bottom:4px;
         a {
           display: flex;
           align-items: flex-end;

@@ -94,7 +94,7 @@ const Header = () => {
               <button className="menu_btn" onClick={() => handleMobileMenu()}>
                 <MdNotes />
               </button>
-              <Button sm variant="outline" className="join_btn">
+              <Button sm variant="outline" className="join_btn" onClick={() => window.open("https://discord.com/")}>
                 <FaDiscord /> Join
               </Button>
               { account ?
