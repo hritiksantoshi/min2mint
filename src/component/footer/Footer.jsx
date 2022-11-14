@@ -44,13 +44,13 @@ const Footer = () => {
                   <img src={backToTopIcon} alt="bithu nft back to top" />
                 </a>
                 <div className="bottom_footer_right">
-                  <ul>
+                  {/* <ul>
                     {footerLinksV1?.map((item, i) => (
                       <li key={i}>
                         <a href={item.url}>{item.title}</a>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>

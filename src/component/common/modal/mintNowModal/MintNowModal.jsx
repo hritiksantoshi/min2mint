@@ -43,7 +43,7 @@ const MintNowModal = () => {
   const increaseCount = () => {
     let next = parseInt(count) + 1
     if (next > 5) {
-      setMessage("Maximum minting ammount is 5");
+      setMessage("Maximum minting amount is 5");
     } 
     else{
       setMessage("");
@@ -54,7 +54,7 @@ const MintNowModal = () => {
   const decreaseCount = () => {
     let prev = parseInt(count) - 1
     if (prev < 1) {
-      setMessage("Minimum minting ammount is 1");
+      setMessage("Minimum minting amount is 1");
     } 
     else{
       setMessage("");
@@ -70,9 +70,9 @@ const MintNowModal = () => {
 
     }
      else if (e.target.value > 5) {
-      setMessage("Maximum minting ammount is 5");
+      setMessage("Maximum minting amount is 5");
     } else if (e.target.value < 1) {
-      setMessage("Minimum minting ammount 1.");
+      setMessage("Minimum minting amount 1.");
     } else{
       setMessage("");
       setCount(parseInt(e.target.value));
@@ -82,9 +82,9 @@ const MintNowModal = () => {
   const mintNow = async () => {
     try {
       if (count >= 5) {
-        setMessage("Maximum minting ammount exceeding!");
+        setMessage("Maximum minting amount exceeding!");
       } else if (count < 1) {
-        setMessage("Minimum minting ammount 1.");
+        setMessage("Minimum minting amount 1.");
       } else {
         let user = await getwhiteListUser(`${account}`);
 

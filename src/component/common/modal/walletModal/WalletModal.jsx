@@ -7,7 +7,7 @@ import formatic from "../../../assets/images/icon/Formatic.svg";
 import trustWalletIcon from "../../../assets/images/icon/Trust_Wallet.svg";
 import walletConnect from "../../../assets/images/icon/WalletConnect.svg";
 const WalletModal = () => {
-  const { walletModalHandle, connectWalletHandle } = useModal();
+  const { walletModalHandle,connectWalletHandle } = useModal();
   return (
     <>
       <WalletModalStyleWrapper className="modal_overlay">
