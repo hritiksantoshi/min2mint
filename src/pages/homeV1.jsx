@@ -19,6 +19,7 @@ import ConnectWallet from "../component/common/modal/metamask/ConnectWallet";
 import LoadingOverlay from 'react-loading-overlay';
 import FadeLoader from "react-spinners/FadeLoader";
 import { Notifications } from 'react-push-notification';
+import LoaderModal from "../component/common/modal/loaderModal";
 
 const HomeV1 = () => {
   const {visibility,walletModalvisibility, metamaskModalVisibility, connectWalletModal,loading } = useModal();
@@ -30,10 +31,9 @@ const HomeV1 = () => {
       {walletModalvisibility && <WalletModal />}
       {metamaskModalVisibility && <MetamaskModal/> }
       {connectWalletModal && <ConnectWallet/> }
-      <LoadingOverlay active={loading} spinner={<FadeLoader color={"#ffffff"}/>}  text='Loading...'>
+      <LoaderModal/>
       <Header />
       <Banner />
-      </LoadingOverlay>
       <Counter/>
       <CharacterSlider />
       <HowToMint />
