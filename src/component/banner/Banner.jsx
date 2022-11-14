@@ -8,20 +8,44 @@ import mintLiveText from "../assets/images/nft/mint_live_text.png";
 import homeImageBG from "../assets/images/nft/home_img_bg.png";
 import { useEffect, useState } from "react";
 import { totalMintCount } from "../../utils/web3mint";
-
+import axios from "axios";
 const Banner = () => {
   const { mintModalHandle, connectWalletModalHanlde, account, loading } = useModal();
   const [remaining, setRemaining] = useState(0);
+  const [count,setCount] = useState(0);
   const calculateRemainingItems = async () => {
     let totaltMintedItems = await totalMintCount();
     setRemaining(parseInt(totaltMintedItems._hex, 16));
     // await getwhiteListUser("0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B");
   };
 
+  const config = {
+    method: 'get',
+    url: 'https://api.pinata.cloud/data/userPinnedDataTotal?hashContains=QmPgPX5vWwt282nVPD4BVvdLdWz92KWwyA6o54GWB6nQKG',
+    headers: { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJkMzE5YjA3ZC01YjdiLTQ3YTYtOWNmYy1iM2QwMjVlMmM3YzEiLCJlbWFpbCI6ImhyeHRvc0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMTdlMzFjMGQ5MWRkMjhlM2U5NzMiLCJzY29wZWRLZXlTZWNyZXQiOiIzM2RmYTkxNGM5OWZlMjFlYzcyMWIzOWE0NmJiZDRmZGE3NWI3Mjc2OWM5NzdlZDMwNDA3Zjc3MzZkM2MzYmIxIiwiaWF0IjoxNjY4MzE0OTc0fQ.6sln8Kd7hwOOtJf_xu4PFeIxtUoytdpJhpTds5xpVJQ'
+    }
+  };
+  
+  const data = async () => {
+    try {
+      const res = await axios(config);
+      let total = (res.data.pin_count-1)/2;
+      setCount(total);
+       console.log((res.data),"axios"); 
+    } catch (error) {
+      console.log(error);
+    }  
+  }
+  
+
   useEffect(() => {
       calculateRemainingItems();
   });
   
+  useEffect(() => {
+    data();
+  },[])
 
   return (
     <BannerV1Wrapper id="home">
@@ -31,7 +55,7 @@ const Banner = () => {
             <div className="bithu_v1_baner_left">
               <h2>Crazy Meta 🎯 NFT collections</h2>
               <h3>
-                <span className="count">{remaining}</span> / 30 Minted
+                <span className="count">{remaining}</span> / {count} Minted
               </h3>
               <div className="sweet-loading"></div>
               <div className="banner_buttons">
