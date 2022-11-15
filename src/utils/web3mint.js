@@ -127,3 +127,20 @@ export const getPrice = async () => {
   }
  
 }
+
+export const getMaxSupply = async () => {
+  try {
+    if(isMetaMaskInstalled()) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const contractAddress = "0x55aa007d87B582d5D6D2e3123671D680A4C0c414";
+      const nftContract = new ethers.Contract(contractAddress, contract, signer);
+      let supply = await nftContract.maxSupply();
+      console.log(supply,"supply");
+      return supply
+    }
+  } catch (error) {
+    console.log(error,"supplyerror");
+  }
+ 
+}

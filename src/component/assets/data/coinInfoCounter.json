@@ -12,12 +12,12 @@
     },
     {
         "number":0.55,
-        "text":"Floor Price(ETH)",
+        "text":"Floor Price  (ETH)",
         "unit":""
     },
     {
         "number":25.50,
-        "text":"Volume Traded(ETH)",
+        "text":"Volume Traded  (ETH)",
         "unit":"K"
     }
 ]

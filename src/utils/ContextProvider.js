@@ -70,6 +70,23 @@ const ContextProvider = ({ children }) => {
       setConnectWalletModal(!connectWalletModal);
     }
   };
+   
+  const connectMetawallet = async () => {
+    setConnectWalletModal(!connectWalletModal);
+    const accounts = await connectWallet();
+    console.log(accounts,"accounts");
+     setAccount(accounts);
+   const b =  await getBalance(accounts[0]);
+    setBalance(b)
+    const net = await network();
+    setNetwork(blockchainNetwork[net]);
+    
+    if (!isWalletConnected()) {
+      connectWalletLocaly();
+    }
+    
+  }
+
 
   const connectWalletHandle = async () => {
     const accounts = await connectWallet();
@@ -85,6 +102,9 @@ const ContextProvider = ({ children }) => {
     }
     setModalvisibility(!walletModalvisibility);
   };
+
+
+  
 
   const isWalletAlreadyConnected = async () => {
     if (isWalletConnected()) {
@@ -119,6 +139,7 @@ const ContextProvider = ({ children }) => {
         disconnectWalletFromApp,
         connectWalletModalHanlde,
         connectWalletModal,
+        connectMetawallet,
         remaining,
         setRemaining,
         loader,

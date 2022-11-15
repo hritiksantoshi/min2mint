@@ -10,6 +10,7 @@ import {
   mint,
   getwhiteListUser,
   getPrice,
+  getMaxSupply
 } from "../../../../utils/web3mint";
 import { useEffect } from "react";
 // import axios from "axios";
@@ -18,10 +19,10 @@ const MintNowModal = () => {
   const [count, setCount] = useState(1);
   const [message, setMessage] = useState("");
   const [remaining, setRemaining] = useState(0);
-  // const [total,setTotal] = useState(0);
-  const [Price, setPrice] = useState();
-  const { mintModalHandle, loader, setloading, account, total } = useModal();
-  console.log(count);
+  const [total,setTotal] = useState(0);
+  const [Price, setPrice] = useState(0);
+  const { mintModalHandle, loader, setloading, account} = useModal();
+ 
   let totalItems = total;
   let price = Price;
 
@@ -33,12 +34,16 @@ const MintNowModal = () => {
   //   }
   // };
 
-  // const data = async () => {
-  //   const res = await axios(config);
-  //   let Total = (res.data.pin_count-1)/2;
-  //   setTotal(Total);
-  //   // console.log((res.data.pin_count-1)/2,"axios");
-  // }
+  const data = async () => {
+    try {
+      const res = await getMaxSupply();
+      // let total = (res.data.pin_count-1)/2;
+      setTotal(parseInt(res._hex, 16));
+      //  console.log((res.data),"axios"); 
+    } catch (error) {
+      console.log(error);
+    }  
+  }
 
   const increaseCount = () => {
     let next = parseInt(count) + 1
@@ -132,9 +137,9 @@ const MintNowModal = () => {
     let cost = await getPrice();
     setPrice(cost);
   };
-  // useEffect(() => {
-  //   data();
-  // },[]);
+  useEffect(() => {
+    data();
+  },[]);
 
   useEffect(() => {
     calculateRemainingItems();
