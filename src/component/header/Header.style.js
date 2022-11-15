@@ -28,7 +28,7 @@ const NavWrapper = styled.nav`
 
   .bithu_menu_sect {
     height: 90px;
-    width: 106%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +38,7 @@ const NavWrapper = styled.nav`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 15%;
+    ${'' /* width: 15%; */}
 
     .logo {
       a {
@@ -55,8 +55,9 @@ const NavWrapper = styled.nav`
   }
 
   .bithu_menu_list {
-    margin-left: 65px;
-    margin-right: 96px;
+    ${'' /* margin-left: 65px;
+    margin-right: 96px; */}
+    margin: auto;
     max-width: 514px;
     min-width: 409px;
     width: 100%;
@@ -146,7 +147,6 @@ const NavWrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
     align-items: center;
-    min-width: 284px;
     button {
       color: #ffffff;
       text-transform: uppercase;
@@ -184,7 +184,11 @@ const NavWrapper = styled.nav`
     }
   }
    
-
+  @media (max-width: 1200px){
+    .logo a img{
+      width: 110px !important;
+    }
+  }
   @media (max-width: 1024px) {
     .bithu_menu_list {
       margin-right: 20px;

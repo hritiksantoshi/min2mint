@@ -67,7 +67,7 @@ const Header = () => {
             </div>
           </div>
           <div className="bithu_menu_right_sect bithu_v1_menu_right_sect">
-            <div className="bithu_menu_list">
+            <div className="bithu_menu_list px-3">
               <ul>
                 <li>
                   <a href="#home">Home</a>
