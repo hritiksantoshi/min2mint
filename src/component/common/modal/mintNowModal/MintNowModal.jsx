@@ -19,13 +19,13 @@ const MintNowModal = () => {
   const [count, setCount] = useState(1);
   const [message, setMessage] = useState("");
   const [remaining, setRemaining] = useState(0);
-  const [total,setTotal] = useState(0);
+  const [total,setTotal] = useState(30);
   const [Price, setPrice] = useState(0);
   const { mintModalHandle, loader, setloading, account} = useModal();
  
   let totalItems = total;
   let price = Price;
-
+   console.log(totalItems);
   // const config = {
   //   method: 'get',
   //   url: 'https://api.pinata.cloud/data/userPinnedDataTotal',
@@ -142,6 +142,7 @@ const MintNowModal = () => {
   },[]);
 
   useEffect(() => {
+   
     calculateRemainingItems();
     nftprice();
   }, [remaining]);

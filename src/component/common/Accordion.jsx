@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "react-accessible-accordion/dist/fancy-example.css";
 import {
   AccordionWrapper,
@@ -53,12 +54,13 @@ const AccordionItem = ({ className, children }) => {
 };
 
 const AccordionTitle = ({ className, children }) => {
-  // const [expand, setExpand] = useState(false)
+   const [expand, setExpand] = useState(false)
   const addAllClasses = ["accordion__header"];
 
   // className prop checking
   if (className) {
     addAllClasses.push(className);
+    setExpand(!expand);
   }
 
   return (
