@@ -66,14 +66,13 @@ export const mint = async (mint_amount,setloading) => {
 };
 
 export const totalMintCount = async () => {
-  if (isMetaMaskInstalled()) {
+  
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const contractAddress = "0xfFDA89F8f45f1c26Ca2F057d219B6B5FC95fdb1B";
     const nftContract = new ethers.Contract(contractAddress, contract, signer);
     let totalMint = await nftContract.count();
     return totalMint;
-  }
 };
 
 export const whiteListUser = async (_user) => {
@@ -112,7 +111,6 @@ export const getwhiteListUser = async (_user) => {
 
 export const getPrice = async () => {
   try {
-    if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const contractAddress = "0xfFDA89F8f45f1c26Ca2F057d219B6B5FC95fdb1B";
@@ -121,7 +119,7 @@ export const getPrice = async () => {
       let Fprice = ethers.utils.formatEther(price);
       console.log(price,"removed");
       return Fprice
-    }
+   
   } catch (error) {
     console.log(error,"costerror");
   }
@@ -130,7 +128,6 @@ export const getPrice = async () => {
 
 export const getMaxSupply = async () => {
   try {
-    if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const contractAddress = "0xfFDA89F8f45f1c26Ca2F057d219B6B5FC95fdb1B";
@@ -138,7 +135,6 @@ export const getMaxSupply = async () => {
       let supply = await nftContract.maxSupply();
       console.log(supply,"supply");
       return supply
-    }
   } catch (error) {
     console.log(error,"supplyerror");
   }
