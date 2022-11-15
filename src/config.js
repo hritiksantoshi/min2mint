@@ -37,6 +37,13 @@ export const getBalance = async (address) =>{
     return ethers.utils.formatEther(Balance); 
 }
 
+export const forcenetwork = async () => {
+    await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0x5' }], // chainId must be in hexadecimal numbers
+      });
+}
+
 export const network = async () => {
     const nwk = ethereum.networkVersion;
     return nwk;
@@ -45,7 +52,6 @@ export const network = async () => {
 // disconnect metamask wallet
 export const disconnectWallet = () =>{
     localStorage.removeItem('isWalletConnected');
-    window.location.reload();
 }
 
 // check metamask on disconnect

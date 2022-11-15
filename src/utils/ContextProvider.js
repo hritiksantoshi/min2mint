@@ -6,7 +6,8 @@ import {
   isWalletConnected,
   disconnectWallet,
   getBalance,
-  network
+  network,
+  forcenetwork
 } from "../config";
 import axios from "axios";
 const ContextProvider = ({ children }) => {
@@ -42,8 +43,8 @@ const ContextProvider = ({ children }) => {
 
 
   const blockchainNetwork = {
-    5:"GoerliETH",
-    1:"Etherum Mainnet"
+    5:"Goerli",
+    1:"Eth"
   }
  
   const loader = () => {
@@ -76,6 +77,7 @@ const ContextProvider = ({ children }) => {
     const accounts = await connectWallet();
     console.log(accounts,"accounts");
      setAccount(accounts);
+     await forcenetwork();
    const b =  await getBalance(accounts[0]);
     setBalance(b)
     const net = await network();
@@ -89,9 +91,11 @@ const ContextProvider = ({ children }) => {
 
 
   const connectWalletHandle = async () => {
+    setModalvisibility(!walletModalvisibility);
     const accounts = await connectWallet();
     console.log(accounts,"accounts");
      setAccount(accounts);
+     await forcenetwork();
    const b =  await getBalance(accounts[0]);
     setBalance(b)
     const net = await network();
@@ -100,7 +104,7 @@ const ContextProvider = ({ children }) => {
     if (!isWalletConnected()) {
       connectWalletLocaly();
     }
-    setModalvisibility(!walletModalvisibility);
+   
   };
 
 

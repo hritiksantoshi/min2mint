@@ -137,12 +137,9 @@ const MintNowModal = () => {
     let cost = await getPrice();
     setPrice(cost);
   };
-  useEffect(() => {
-    data();
-  },[]);
 
   useEffect(() => {
-   
+    data();
     calculateRemainingItems();
     nftprice();
   }, [remaining]);

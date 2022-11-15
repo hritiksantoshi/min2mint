@@ -31,7 +31,7 @@ export const Faq = () => {
           />
 
           <div className="bithu_faq_questions">
-            <Accordion className="faq_questions">
+            <Accordion className="faq_questions" allowZeroExpanded>
               {data?.map((item, i) => (
                 <AccordionItem key={i}>
                   <AccordionTitle>

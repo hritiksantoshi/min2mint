@@ -56,9 +56,9 @@ const WalletModal = () => {
                 </a>
               </div>
               <div className="modal_bottom_text">
-                By connecting your wallet, you agree to our
+               <p> By connecting your wallet, you agree to our
                 <a href="# ">Terms of Service</a>
-                <a href="# ">Privacy Policy</a>
+                <a href="# ">Privacy Policy</a></p>
               </div>
             </div>
 

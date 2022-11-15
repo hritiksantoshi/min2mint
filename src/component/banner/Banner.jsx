@@ -40,13 +40,12 @@ const Banner = () => {
   
 
   useEffect(() => {
+      data();
       calculateRemainingItems();
+     
   });
   
-  useEffect(() => {
-    data();
-  },[])
-
+ 
   return (
     <BannerV1Wrapper id="home">
       <div className="container">
