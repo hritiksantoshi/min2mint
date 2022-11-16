@@ -46,24 +46,28 @@ const MintNowModal = () => {
   }
 
   const increaseCount = () => {
-    let next = parseInt(count) + 1
+    let next = parseInt(count) + 1;
     if (next > 5) {
       setMessage("Maximum minting amount is 5");
-    } 
+    } else if(isNaN(next)){
+
+    }
     else{
       setMessage("");
-      setCount(old=>old+1);
+      setCount(next);
     }
   };
 
   const decreaseCount = () => {
-    let prev = parseInt(count) - 1
+    let prev = count - 1
     if (prev < 1) {
       setMessage("Minimum minting amount is 1");
-    } 
+    } else if(isNaN(prev)){
+
+    }
     else{
       setMessage("");
-      setCount(old=>old-1);
+      setCount(prev);
     }
   };
 
@@ -71,7 +75,7 @@ const MintNowModal = () => {
     if (e.target.value == "") {
       setCount(e.target.value);
       setMessage("Minting amount required");
-    }else if(isNaN(parseInt(e.target.value))){
+    }else if(isNaN(e.target.value)){
 
     }
      else if (e.target.value > 5) {

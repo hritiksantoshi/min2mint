@@ -119,7 +119,7 @@ export const getPrice = async () => {
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let price = await nftContract.cost();
       let Fprice = ethers.utils.formatEther(price);
-      console.log(price,"removed");
+      // console.log(price,"removed");
       return Fprice
     }
   } catch (error) {
@@ -136,7 +136,6 @@ export const getMaxSupply = async () => {
       const contractAddress = "0xfFDA89F8f45f1c26Ca2F057d219B6B5FC95fdb1B";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let supply = await nftContract.maxSupply();
-      console.log(supply,"supply");
       return supply
     }
   } catch (error) {

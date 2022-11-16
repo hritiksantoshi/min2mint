@@ -15,7 +15,6 @@ export const isMetaMaskInstalled = () =>{
 // connect to metakmask wallet
 export const connectWallet = async () =>{
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
-    
     return accounts;
 }
 
@@ -24,7 +23,6 @@ export const connectAccount = async () =>{
     const accounts = await ethereum.request({
         method: 'eth_accounts',
     });
-    
     return accounts;
 }
 
@@ -52,6 +50,7 @@ export const network = async () => {
 // disconnect metamask wallet
 export const disconnectWallet = () =>{
     localStorage.removeItem('isWalletConnected');
+    window.location.reload();
 }
 
 // check metamask on disconnect
