@@ -146,7 +146,7 @@ const MintNowModal = () => {
     data();
     calculateRemainingItems();
     nftprice();
-  }, [remaining]);
+  });
 
   return (
     <>

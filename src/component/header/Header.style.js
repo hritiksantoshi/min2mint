@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavWrapper = styled.nav`
-  z-index: 999;
+  z-index: 999;  
   &.bithu_header {
     position: absolute;
     top: 0;
