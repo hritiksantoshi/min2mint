@@ -200,6 +200,12 @@ const MintModalStyleWrapper = styled.div`
       transform: rotate(180deg);
     }
   }
+
+  @media (max-width: 1200px){
+    .mint_modal_box{
+       margin-top:100px;
+    }
+  }
 `;
 
 export default MintModalStyleWrapper;
