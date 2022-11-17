@@ -1,6 +1,6 @@
 import contract from "../contracts/bithuabi.json";
 import { ethers } from "ethers";
-import { isMetaMaskInstalled, ethereum } from "../config";
+import { isMetaMaskInstalled, ethereum,isWalletConnected } from "../config";
 import {  toast } from 'react-toastify';
 export const mint = async (mint_amount,setloading) => {
   try {
@@ -130,7 +130,7 @@ export const getPrice = async () => {
 
 export const getMaxSupply = async () => {
   try {
-    if(isMetaMaskInstalled()) {
+    if(isWalletConnected()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const contractAddress = "0xE4b7C4C34E36e5df4e856164c7E5D450522910a1";
