@@ -11,8 +11,9 @@ import { totalMintCount,getMaxSupply } from "../../utils/web3mint";
 import {db} from "../../firebase-config";
 import {collection,doc,getDocs,updateDoc} from "firebase/firestore"
 import { async } from "@firebase/util";
+import { isMetaMaskInstalled } from '../../config';
 const Banner = () => {
-  const { mintModalHandle, connectWalletModalHanlde, account } = useModal();
+  const { mintModalHandle, connectWalletModalHanlde, account ,metamaskModalHandle} = useModal();
   const [remaining, setRemaining] = useState();
   const [total,setTotal] = useState();
   const [fireTotal,setfireTotal] = useState();
@@ -40,12 +41,12 @@ const Banner = () => {
    
 });
   
-  const update = async () =>{
-    const updata = await getDocs(userCollectionRef);
-    updata.forEach((doc) => {
+  // const update = async () =>{
+  //   const updata = await getDocs(userCollectionRef);
+  //   updata.forEach((doc) => {
       
-    }); 
-  }
+  //   }); 
+  // }
   useEffect(() => {
    const getNfts = async () => {
     const lastData = await getDocs(userCollectionRef);
@@ -66,7 +67,13 @@ const Banner = () => {
    getNfts();
   },[])
   
-  
+  const mintNowHandle = async () => {
+    if(!isMetaMaskInstalled()){
+      metamaskModalHandle();
+    }else{
+      connectWalletModalHanlde();
+    }
+  }
   
  
   return (
@@ -90,7 +97,7 @@ const Banner = () => {
                   <Button
                     lg
                     variant="mint"
-                    onClick={() => connectWalletModalHanlde()}
+                    onClick={() => mintNowHandle()}
                   >
                     {" "}
                     Mint now
