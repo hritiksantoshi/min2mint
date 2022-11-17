@@ -7,21 +7,36 @@ export const mint = async (mint_amount,setloading) => {
     if (isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
       const nftContract = new ethers.Contract(
         contractAddress,
         contract,
         signer
       );
-     
+      let limit = await nftContract.USERLIMIT();
+      let maxMint = await nftContract.maxWalletMints( ethereum.selectedAddress);
+      if(maxMint >= limit){
+        toast.error('Max NFT minting limit reached', {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+          return;
+      }
+
       let txnHash = await nftContract.mint(
         ethereum.selectedAddress,
         mint_amount,
         {
-          gasLimit: "330000",
+          gasLimit: "310000",
           value: ethers.utils.parseEther((0.03 * mint_amount).toString()),
-        }
-      );
+        });
+
        console.log(txnHash,"txnHash");
 
         if(txnHash){
@@ -44,6 +59,9 @@ export const mint = async (mint_amount,setloading) => {
         1,
         300000
       );
+
+
+
       // console.log(txReceipt,"txReceipt");
       if (txReceipt && txReceipt.blockNumber) {
         console.log(txReceipt,"receipt");
@@ -69,7 +87,7 @@ export const totalMintCount = async () => {
   if (isMetaMaskInstalled()) {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+    const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
     const nftContract = new ethers.Contract(contractAddress, contract, signer);
     let totalMint = await nftContract.count();
     return totalMint;
@@ -81,7 +99,7 @@ export const whiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelistUser(_user);
       console.log(user,"whitelisted");
@@ -98,7 +116,7 @@ export const getwhiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelisted(_user);
       console.log(user,"whitelisted");
@@ -115,7 +133,7 @@ export const getPrice = async () => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let price = await nftContract.cost();
       let Fprice = ethers.utils.formatEther(price);
@@ -133,7 +151,7 @@ export const getMaxSupply = async () => {
     if(isWalletConnected()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xeC78A859B4e7cE0D2E382cfB8c92D61A4740dcEC";
+      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let supply = await nftContract.maxSupply();
       return supply

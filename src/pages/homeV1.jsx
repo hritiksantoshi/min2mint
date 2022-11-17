@@ -16,9 +16,7 @@ import MintNowModal from "../component/common/modal/mintNowModal/MintNowModal";
 import WalletModal from "../component/common/modal/walletModal/WalletModal";
 import MetamaskModal from "../component/common/modal/metamask/MetamaskModal";
 import ConnectWallet from "../component/common/modal/metamask/ConnectWallet";
-import LoadingOverlay from 'react-loading-overlay';
-import FadeLoader from "react-spinners/FadeLoader";
-import { Notifications } from 'react-push-notification';
+import Contact from "../component/contact/Contact"
 import LoaderModal from "../component/common/modal/loaderModal";
 
 const HomeV1 = () => {
@@ -41,6 +39,7 @@ const HomeV1 = () => {
       <RoadMap /> 
       <Team />
       <Faq />
+     <Contact />
       <Footer />
     </Layout>
   );

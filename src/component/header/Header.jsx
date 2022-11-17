@@ -85,7 +85,7 @@ const Header = () => {
                   <a href="#faq">FAQ</a>
                 </li>
                 <li>
-                  <a href="https://blocktechbrew.com/">Contact</a>
+                  <a href="#contact">Contact</a>
                 </li>
                
               </ul>
