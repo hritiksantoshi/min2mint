@@ -15,7 +15,9 @@ export const mint = async (mint_amount,setloading) => {
       );
       let limit = await nftContract.USERLIMIT();
       let walletMints = await nftContract.maxWalletMints( ethereum.selectedAddress);
-      if(walletMints >= limit){
+      let total = parseInt(walletMints) + parseInt(mint_amount);
+      console.log(total,"gyyu");
+      if(total  > limit){
         toast.error('Max NFT per Wallet limit reached', {
           position: "top-right",
           autoClose: 4000,
