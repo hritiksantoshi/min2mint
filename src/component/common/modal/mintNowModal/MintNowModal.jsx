@@ -78,8 +78,8 @@ const MintNowModal = () => {
     }else if(isNaN(e.target.value)){
 
     }
-     else if (e.target.value > 5) {
-      setMessage("Maximum minting amount is 5");
+     else if (e.target.value > 3) {
+      setMessage("Maximum minting amount is 3");
     } else if (e.target.value < 1) {
       setMessage("Minimum minting amount 1.");
     } else{

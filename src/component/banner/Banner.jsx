@@ -23,7 +23,7 @@ const Banner = () => {
   const calculateRemainingItems = async () => {
     let totaltMintedItems = await totalMintCount();
     setRemaining(parseInt(totaltMintedItems._hex, 16));
-    //  await whiteListUser("0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B");
+      // await whiteListUser("0x25F8486AC4641DD6e7443B852c0a1032BbC3182a");
   };
   
   const data = async () => {
