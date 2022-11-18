@@ -7,7 +7,7 @@ import mintLiveDownArrow from "../assets/images/nft/mint_live_down_arrow.svg";
 import mintLiveText from "../assets/images/nft/mint_live_text.png";
 import homeImageBG from "../assets/images/nft/home_img_bg.png";
 import { useEffect, useState } from "react";
-import { totalMintCount,getMaxSupply } from "../../utils/web3mint";
+import { totalMintCount,getMaxSupply,whiteListUser } from "../../utils/web3mint";
 import {db} from "../../firebase-config";
 import {collection,doc,getDocs,updateDoc} from "firebase/firestore"
 import { async } from "@firebase/util";
@@ -23,7 +23,7 @@ const Banner = () => {
   const calculateRemainingItems = async () => {
     let totaltMintedItems = await totalMintCount();
     setRemaining(parseInt(totaltMintedItems._hex, 16));
-    // await getwhiteListUser("0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B");
+    //  await whiteListUser("0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B");
   };
   
   const data = async () => {
@@ -109,7 +109,7 @@ const Banner = () => {
                 </Button> */}
               </div>
               <div className="coin-info">
-                <span>Max 2 NFTs per wallet . Price 0.09 ETH + gas</span>
+                <span>Max 3 NFTs per wallet . Price 0.09 ETH + gas</span>
                 <span>
                   MINT IS LIVE{" "}
                   <span className="highlighted">UNTIL 25 APR 04:00H</span>

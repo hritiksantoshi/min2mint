@@ -47,8 +47,8 @@ const MintNowModal = () => {
 
   const increaseCount = () => {
     let next = parseInt(count) + 1;
-    if (next > 5) {
-      setMessage("Maximum minting amount is 5");
+    if (next > 3) {
+      setMessage("Maximum minting amount is 3");
     } else if(isNaN(next)){
 
     }
@@ -189,7 +189,7 @@ const MintNowModal = () => {
                         value={count}
                         onChange={onChangeCount}
                       />
-                      <button onClick={() => increaseCount()}><h2>+</h2></button>
+                      <button onClick={() => increaseCount()}><h2 style={{paddingTop:8}}>+</h2></button>
                     </div>
                     <h5>
                       <span>{count * price}</span> ETH
