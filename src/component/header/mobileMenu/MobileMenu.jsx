@@ -10,7 +10,7 @@ import { isMetaMaskInstalled } from '../../../config';
 import MobileMenuStyleWrapper from "./MobileMenu.style";
 
 const MobileMenu = ({ mobileMenuhandle }) => {
-  const { walletModalHandle, metamaskModalHandle, account, disconnectWalletFromApp } = useModal();
+  const { walletModalHandle, metamaskModalHandle, account, disconnectWalletFromApp, balance, nwk } = useModal();
   const [isSubmenu, setSubmenu] = useState(false);
 
   const handleSubmenu = () => {
@@ -18,7 +18,7 @@ const MobileMenu = ({ mobileMenuhandle }) => {
   };
 
   const substr = (str, n) =>{
-    return str.length > n ? str.substr(0, n -1) : str;
+    return str.length > n ? str.substr(0, n -1)+"..."+str.substr(38,43) : str;
   }
 
   const handleWalletConnect = async () =>{
@@ -58,47 +58,26 @@ const MobileMenu = ({ mobileMenuhandle }) => {
             <li className="mobile_menu_hide">
               <a href="#faq">FAQ</a>
             </li>
-            <li className="submenu mobile_submenu" onClick={handleSubmenu}>
-              <a href="# ">Pages +</a>
-              <ul
-                className={`sub_menu_list mobile_sub_menu_list ${
-                  isSubmenu === true && "submenu_hovered"
-                }`}
-              >
-                <li className="mobile_menu_hide">
-                  <a href="/">Home One</a>
+            <li>
+                  <a href="#contact">Contact</a>
                 </li>
-                <li className="mobile_menu_hide">
-                  <a href="/home-two">Home Two</a>
-                </li>
-                <li className="mobile_menu_hide">
-                  <a href="/home-three">Home Three</a>
-                </li>
-                <li className="mobile_menu_hide">
-                  <a href="/blogs">Latest Blog</a>
-                </li>
-                <li className="mobile_menu_hide">
-                  <a href="/post">Blog Details</a>
-                </li>
-              </ul>
-            </li>
           </ul>
         </div>
         <div className="mobile_menu_social_links">
-          <a href="# ">
+          <a href="https://opensea.io/">
             <img src={openseaIcon} alt="bithu social icon" />
           </a>
-          <a href="# ">
+          <a href="https://twitter.com/home">
             <FaTwitter />
           </a>
-          <a href="# ">
+          <a href="https://discord.com/">
             <FaDiscord />
           </a>
         </div>
         { account ?
           <Dropdown>
             <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="connect_btn">
-              { substr(account.toString(), 15) }
+            {balance.substr(0,6)}{" "}{nwk}{" "}{"|"}{" "}{ substr(account.toString(), 6)}
             </Dropdown.Toggle>
       
             <Dropdown.Menu>

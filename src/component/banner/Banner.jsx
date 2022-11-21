@@ -1,5 +1,4 @@
 import { useModal } from "../../utils/ModelContext";
-import Counter from "../common/counter/Counter";
 import Button from "../common/button/Button";
 import BannerV1Wrapper from "./Banner.style";
 import characterThumb from "../assets/images/nft/Character1.png";
@@ -10,8 +9,9 @@ import { useEffect, useState } from "react";
 import { totalMintCount,getMaxSupply,whiteListUser } from "../../utils/web3mint";
 import {db} from "../../firebase-config";
 import {collection,doc,getDocs,updateDoc} from "firebase/firestore"
-import { async } from "@firebase/util";
 import { isMetaMaskInstalled } from '../../config';
+
+
 const Banner = () => {
   const { mintModalHandle, connectWalletModalHanlde, account ,metamaskModalHandle} = useModal();
   const [remaining, setRemaining] = useState();

@@ -164,6 +164,15 @@ const MetamaskModalStyle = styled.div`
       transform: rotate(180deg);
     }
   }
+  @media (max-width: 600px){
+    .mint_modal_box{
+       width:340px;
+    }
+    .mint_modal_content{
+      padding:18px;
+      padding-bottom:38px;
+    }
+  }
 `;
 
 export default MetamaskModalStyle;

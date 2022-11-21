@@ -7,7 +7,7 @@ export const mint = async (mint_amount,setloading) => {
     if (isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
       const nftContract = new ethers.Contract(
         contractAddress,
         contract,
@@ -16,7 +16,7 @@ export const mint = async (mint_amount,setloading) => {
       let limit = await nftContract.USERLIMIT();
       let walletMints = await nftContract.maxWalletMints( ethereum.selectedAddress);
       let total = parseInt(walletMints) + parseInt(mint_amount);
-      console.log(total,"gyyu");
+      // console.log(total,"gyyu");
       if(total  > limit){
         toast.error('Max NFT per Wallet limit reached', {
           position: "top-right",
@@ -89,7 +89,7 @@ export const totalMintCount = async () => {
   if (isMetaMaskInstalled()) {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+    const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
     const nftContract = new ethers.Contract(contractAddress, contract, signer);
     let totalMint = await nftContract.count();
     return totalMint;
@@ -101,7 +101,7 @@ export const whiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelistUser(_user);
       console.log(user,"whitelisted");
@@ -118,7 +118,7 @@ export const getwhiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelisted(_user);
       console.log(user,"whitelisted");
@@ -135,7 +135,7 @@ export const getPrice = async () => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let price = await nftContract.cost();
       let Fprice = ethers.utils.formatEther(price);
@@ -153,7 +153,7 @@ export const getMaxSupply = async () => {
     if(isWalletConnected()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0xC0b47Aa657e407b4d8e9057F42C4CC52744C2B4D";
+      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let supply = await nftContract.maxSupply();
       return supply

@@ -206,6 +206,23 @@ const MintModalStyleWrapper = styled.div`
        margin-top:100px;
     }
   }
+    @media (max-width: 600px){
+    .mint_modal_box{
+       width:360px;
+    }
+    .mint_modal_content{
+      padding: 15px;
+    padding-bottom: 40px
+    }
+    .modal_mint_btn {
+    button {
+      width: 70%;
+      margin-left: 50px;
+    height: 40px;
+    }
+  }
+ 
+  }
 `;
 
 export default MintModalStyleWrapper;
