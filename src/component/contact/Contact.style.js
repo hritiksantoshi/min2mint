@@ -99,7 +99,9 @@ const ContactStyleWrapper = styled.section`
       margin-top: 15px;
     }
   }
-
+   .cap{
+    margin-top:15px;
+   }
   @media only screen and (max-width: 991px) {
     .section_tag_line {
       h4 {
@@ -119,6 +121,11 @@ const ContactStyleWrapper = styled.section`
         line-height: 30px;
       }
     }
+  }
+  .btn-primary{
+    margin-top:20px;
+    width:200px;
+    height:60px
   }
 
   @media only screen and (max-width: 767px) {

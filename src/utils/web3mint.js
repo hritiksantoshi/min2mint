@@ -149,8 +149,7 @@ export const getPrice = async () => {
 }
 
 export const getMaxSupply = async () => {
-  try {
-    if(isWalletConnected()) {
+    if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
@@ -158,8 +157,4 @@ export const getMaxSupply = async () => {
       let supply = await nftContract.maxSupply();
       return supply
     }
-  } catch (error) {
-    console.log(error,"supplyerror");
-  }
- 
 }
