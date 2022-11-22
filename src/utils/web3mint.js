@@ -7,7 +7,7 @@ export const mint = async (mint_amount,setloading) => {
     if (isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+      const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
       const nftContract = new ethers.Contract(
         contractAddress,
         contract,
@@ -16,9 +16,24 @@ export const mint = async (mint_amount,setloading) => {
       let limit = await nftContract.USERLIMIT();
       let walletMints = await nftContract.maxWalletMints( ethereum.selectedAddress);
       let total = parseInt(walletMints) + parseInt(mint_amount);
-      // console.log(total,"gyyu");
-      if(total  > limit){
+     
+      if(parseInt(walletMints) == limit){
         toast.error('Max NFT per Wallet limit reached', {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+          return;
+      }
+
+      if(total  > limit){
+        let left = limit - parseInt(walletMints);
+        toast.error(`You have only ${left} Nfts left to mint` , {
           position: "top-right",
           autoClose: 4000,
           hideProgressBar: false,
@@ -89,7 +104,7 @@ export const totalMintCount = async () => {
   if (isMetaMaskInstalled()) {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+    const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
     const nftContract = new ethers.Contract(contractAddress, contract, signer);
     let totalMint = await nftContract.count();
     return totalMint;
@@ -101,7 +116,7 @@ export const whiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+      const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelistUser(_user);
       console.log(user,"whitelisted");
@@ -118,7 +133,7 @@ export const getwhiteListUser = async (_user) => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+      const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let user = await nftContract.whitelisted(_user);
       console.log(user,"whitelisted");
@@ -135,7 +150,7 @@ export const getPrice = async () => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+      const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let price = await nftContract.cost();
       let Fprice = ethers.utils.formatEther(price);
@@ -152,7 +167,7 @@ export const getMaxSupply = async () => {
     if(isMetaMaskInstalled()) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
-      const contractAddress = "0x642edfdC6165bbe0dD9A53f1a8b421AA367b133f";
+      const contractAddress = "0xDE59cC02C2EDb6b7d5602800f5806966EDe8E3C7";
       const nftContract = new ethers.Contract(contractAddress, contract, signer);
       let supply = await nftContract.maxSupply();
       return supply

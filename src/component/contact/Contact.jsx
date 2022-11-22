@@ -6,6 +6,10 @@ import phoneIcon from "../assets/images/icon/call-outgoing.svg";
 import msgIcon from "../assets/images/icon/sms-notification.svg";
 import ContactStyleWrapper from "./Contact.style";
 import ReCAPTCHA from "react-google-recaptcha";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import { isValidPhoneNumber } from 'react-phone-number-input'
+
 const Contact = () => {
 
   const SERVICE_ID = "service_ja14xje";
@@ -15,7 +19,7 @@ const Contact = () => {
   const [msg, setmsg] = useState("");
   const [phonemsg, setphonemsg] = useState("");
   const [phone, setphone] = useState("");
-
+  const [value, setValue] = useState();
   const handleOnSubmit = (e) => {
     e.preventDefault();
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
@@ -55,6 +59,7 @@ const Contact = () => {
       e.target.value.length <= 10
     ) {
       setphone(e.target.value);
+      
       setphonemsg(
         e.target.value.length === 10
           ? ""
@@ -103,15 +108,23 @@ const Contact = () => {
                   {msg && <p>{msg}</p>}
                   <div className="form_box">
                     <label htmlFor="phnNo">Phone Number</label>
-                    <input
+                    {/* <input
                       type="text"
                       placeholder="e.g.  +55 365 256 2556"
                       name="phnNo"
                       value={phone}
                       onChange={validPhone}
                       required
-                    />
+                    /> */}
+                    <PhoneInput
+                        defaultCountry="IN"
+                        value={value}
+                       onChange={setValue}
+                       error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
+                       />
+                          
                   </div>
+                  {value ? (isValidPhoneNumber(value) ? undefined : <p>'Invalid phone number'</p>) : <p></p>}
                   {phonemsg && <p>{phonemsg}</p>}
                   <div className="form_box">
                     <label htmlFor="message">Message *</label>
@@ -138,7 +151,7 @@ const Contact = () => {
                   </span>
                   <div className="contact_info_text">
                     <h5>Call us</h5>
-                    <p>Mobile: (+61) - 1990 - 6886</p>
+                    <p>Mobile:+91 874-590-9990</p>
                     <p>Hotline: 1800 - 1102</p>
                   </div>
                 </div>
@@ -149,8 +162,8 @@ const Contact = () => {
                   </span>
                   <div className="contact_info_text">
                     <h5>Mail us</h5>
-                    <p>Info: ask@domain.com</p>
-                    <p>Support: wearehere@domain.com</p>
+                    <p>Info: blocktechbrew.com</p>
+                    <p>Support: business@blocktechbrew.com</p>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,9 @@
 import { FaDiscord } from "react-icons/fa";
+import { useModal } from "../../utils/ModelContext";
 import SectionTitle from "../common/sectionTitle/SectionTitle";
 import Button from "../common/button";
 import data from "../assets/data/socialProfile";
-
+import Swal from "sweetalert2";
 import hoverShape from "../assets/images/icon/hov_shape_s.svg";
 import particleShape1 from "../assets/images/icon/star_1.svg";
 import particleShape2 from "../assets/images/icon/star_2.svg";
@@ -24,6 +25,16 @@ const CTA = () => {
     particleShape2,
     particleShape5,
   ];
+  const {account} = useModal();
+   let acc = account.toString();
+   let useracc = acc.substr(0,5)+'...'+acc.substr(38,43);
+  const whitelistNow = () =>{
+    Swal.fire(
+      'Request Send',
+      `a request has been send to whitelist ${useracc} user `,
+      'success'
+    )
+  }
   return (
     <CTAStyleWrapper>
       <div className="container">
@@ -34,7 +45,7 @@ const CTA = () => {
         <div className="title-emo">🤙</div>
         <div className="bithu_v1_cta_content">
           <div className="join_comunity_btns">
-            <Button lg variant="mint" className="wishlist_btn">
+            <Button lg variant="mint" className="wishlist_btn" onClick={whitelistNow}>
               Whitelist Now
             </Button>
             <Button lg variant="blue" className="join_discord_btn" onClick={() => window.open("https://discord.com/")}>

@@ -17,7 +17,7 @@ const Banner = () => {
   const [remaining, setRemaining] = useState();
   const [total,setTotal] = useState();
   const [fireTotal,setfireTotal] = useState();
-  const [minted,setMinted] = useState()
+  const [minted,setMinted] = useState();
   const userCollectionRef = collection(db,"nfts");
   let collectionId;
   const calculateRemainingItems = async () => {

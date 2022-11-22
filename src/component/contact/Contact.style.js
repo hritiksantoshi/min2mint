@@ -102,6 +102,12 @@ const ContactStyleWrapper = styled.section`
    .cap{
     margin-top:15px;
    }
+   .PhoneInputCountry{
+    border: 2px solid;
+   }
+   .PhoneInputCountryIcon{
+    margin-left: 8px;
+   }
   @media only screen and (max-width: 991px) {
     .section_tag_line {
       h4 {

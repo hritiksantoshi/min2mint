@@ -4,6 +4,7 @@ import {
     FaInstagram,
     FaTelegramPlane,
     FaFacebook,
+    FaYoutube
   } from "react-icons/fa";
   
   import openseaIcon from "../images/icon/opensea.svg";
@@ -16,23 +17,23 @@ import {
     },
     {
       icon: <FaTwitter />,
-      url: "https://twitter.com/",
+      url: "https://twitter.com/blocktechbrew",
     },
     {
       icon: <FaLinkedinIn />,
-      url: "https://www.linkedin.com/login",
+      url: "https://www.linkedin.com/company/block-tech-brew/",
     },
     {
       icon: <FaFacebook />,
-      url: "https://www.facebook.com/",
+      url: "https://www.facebook.com/blocktechbrew",
     },
     {
       icon: <FaInstagram />,
-      url: "https://www.instagram.com/",
+      url: "hhttps://www.instagram.com/blocktechbrew/?hl=en",
     },
     {
-      icon: <FaTelegramPlane />,
-      url: "https://web.telegram.org/?legacy=1#/login",
+      icon: <FaYoutube />,
+      url: "https://www.youtube.com/channel/UCjAA9goFumPJDWeIMP12_lA",
     },
     {
       thumb: mediumIcon,
