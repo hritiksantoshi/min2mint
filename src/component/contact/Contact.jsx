@@ -179,7 +179,7 @@ const Contact = () => {
                     ></textarea>
                      <span style={{color: 'red'}}>{msgErr}</span>
                   </div>
-                  <ReCAPTCHA className="cap" sitekey="6Le-XiYjAAAAAD5FzOW8YvHDdoPCgSxo7AzK5qp6"   />
+                  <ReCAPTCHA className="cap" sitekey="6Le-XiYjAAAAAD5FzOW8YvHDdoPCgSxo7AzK5qp6" type="image" />
                   <Button variant="primary" size="lg" type="submit">
                   <h4 style={{paddingTop:7}}>  Submit Now </h4>
                   </Button>{" "}
