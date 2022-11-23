@@ -39,7 +39,7 @@ const HomeV1 = () => {
       <RoadMap /> 
       <Team />
       <Faq />
-     <Contact />
+     <Contact/>
       <Footer />
     </Layout>
   );

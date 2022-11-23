@@ -45,6 +45,7 @@ const ContactStyleWrapper = styled.section`
     outline: none;
     padding: 8px 21px;
     font-weight: 500;
+    font-family: 'Bakbak One',cursive;
     font-size: 16px;
     color: #ffffff;
     width: 100%;

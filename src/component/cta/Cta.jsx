@@ -30,8 +30,8 @@ const CTA = () => {
    let useracc = acc.substr(0,5)+'...'+acc.substr(38,43);
   const whitelistNow = () =>{
     Swal.fire(
-      'Request Send',
-      `a request has been send to whitelist ${useracc} user `,
+      'Request Sent',
+      `a request has been sent to whitelist <b>${useracc}</b> user `,
       'success'
     )
   }
