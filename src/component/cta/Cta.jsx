@@ -31,7 +31,7 @@ const CTA = () => {
   const whitelistNow = () =>{
     Swal.fire(
       'Request Sent',
-      `a request has been sent to whitelist <b>${useracc}</b> user `,
+      `A request has been sent to admin to whitelist <b>${useracc}</b>`,
       'success'
     )
   }
@@ -45,7 +45,7 @@ const CTA = () => {
         <div className="title-emo">🤙</div>
         <div className="bithu_v1_cta_content">
           <div className="join_comunity_btns">
-            <Button lg variant="mint" className="wishlist_btn" onClick={whitelistNow}>
+            <Button lg variant="mint" className="wishlist_btn" onClick={account?whitelistNow:"nothing"}>
               Whitelist Now
             </Button>
             <Button lg variant="blue" className="join_discord_btn" onClick={() => window.open("https://discord.com/")}>

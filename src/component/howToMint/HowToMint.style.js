@@ -85,6 +85,9 @@ const HowToMintWrapper = styled.section`
         }
       }
     }
+    .how_to_mint_content {
+      padding-left:94px;
+    }
   }
 
   @media only screen and (max-width: 991px) {
