@@ -221,7 +221,15 @@ const MintModalStyleWrapper = styled.div`
     height: 40px;
     }
   }
- 
+  .modal_header {
+    h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    }
+    .mint_count_list {
+    margin: 10px 0px;
+    }
   }
 `;
 

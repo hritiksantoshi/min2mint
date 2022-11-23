@@ -24,6 +24,7 @@ const Contact = () => {
   const [phonemsg, setphonemsg] = useState("");
   const [phone, setphone] = useState(false);
   const [value, setValue] = useState();
+  const [recapErr,setrecapErr] = useState("");
   const handleOnSubmit = (e) => {
     if(!name){
       setnameErr(" name is required")
@@ -47,11 +48,7 @@ const Contact = () => {
         })
       }, (error) => {
         console.log(error.text);
-        Swal.fire({
-          icon: 'error',
-          title: "Ooops, something went wrong",
-          text: error.text,
-        })
+        setrecapErr(error.text);
       });
       e.target.reset()
     }
@@ -179,6 +176,7 @@ const Contact = () => {
                     ></textarea>
                      <span style={{color: 'red'}}>{msgErr}</span>
                   </div>
+                  <span style={{color: 'red'}}>{recapErr}</span>
                   <ReCAPTCHA className="cap" sitekey="6Le-XiYjAAAAAD5FzOW8YvHDdoPCgSxo7AzK5qp6" type="image" />
                   <Button variant="primary" size="lg" type="submit">
                   <h4 style={{paddingTop:7}}>  Submit Now </h4>

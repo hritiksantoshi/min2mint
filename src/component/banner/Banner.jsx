@@ -20,11 +20,7 @@ const Banner = () => {
   const [minted,setMinted] = useState();
   const userCollectionRef = collection(db,"nfts");
   let collectionId;
-  const calculateRemainingItems = async () => {
-    let totaltMintedItems = await totalMintCount();
-    setRemaining(parseInt(totaltMintedItems._hex, 16));
-      // await whiteListUser("0x25F8486AC4641DD6e7443B852c0a1032BbC3182a");
-  };
+  
   
   const data = async () => {
     try {
@@ -58,14 +54,21 @@ const Banner = () => {
        collectionId = doc.id;
     }); 
     //  console.log(collectionId,"updoc");
-    let updoc = doc(db,"nfts",collectionId); 
+    
+  };
+   getNfts();
+  },[])
+
+  const calculateRemainingItems = async () => {
+    let totaltMintedItems = await totalMintCount();
+    setRemaining(parseInt(totaltMintedItems._hex, 16));
+      // await whiteListUser("0x25F8486AC4641DD6e7443B852c0a1032BbC3182a");
+      let updoc = doc(db,"nfts",collectionId); 
     if(remaining != minted){
       await updateDoc(updoc,{"Minted":remaining})
       
     }  
   };
-   getNfts();
-  },[])
   
   const mintNowHandle = async () => {
     if(!isMetaMaskInstalled()){
