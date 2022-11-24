@@ -29,7 +29,7 @@ import {
     },
     {
       icon: <FaInstagram />,
-      url: "hhttps://www.instagram.com/blocktechbrew/?hl=en",
+      url: "https://www.instagram.com/blocktechbrew/",
     },
     {
       icon: <FaYoutube />,

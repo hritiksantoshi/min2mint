@@ -170,7 +170,7 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   {validation.msg && <p>{validation.msg}</p>}
-                  <ReCAPTCHA className="cap" sitekey="6Le-XiYjAAAAAD5FzOW8YvHDdoPCgSxo7AzK5qp6"   />
+                  <ReCAPTCHA className="cap" sitekey="6Le-XiYjAAAAAD5FzOW8YvHDdoPCgSxo7AzK5qp6"  type="image" />
                   <Button variant="primary" size="lg" type="submit">
                     Submit Now
                   </Button>{" "}

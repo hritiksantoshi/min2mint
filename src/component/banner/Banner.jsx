@@ -100,6 +100,7 @@ const Banner = () => {
                   <Button
                     lg
                     variant="mint"
+                    className="mint" 
                     onClick={() => mintNowHandle()}
                   >
                     {" "}

@@ -139,6 +139,7 @@ const BannerV1Wrapper = styled.section`
   }
 
   @media only screen and (max-width: 1199px) {
+    padding-top: 90px;
     .bithu_v1_baner_left {
       h2 {
         font-size: 50px;
@@ -157,13 +158,18 @@ const BannerV1Wrapper = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
+    .mint{
+      width:140px;
+      height:50px;
+    }
     .bithu_v1_baner_left {
       margin-top: 0px;
       justify-content: flex-start;
     }
 
     .bithu_v1_baner_right {
-      margin: 70px auto;
+      margin-top: 0px;
+    margin-bottom: 36px;
       padding: 0px 68px;
       max-width: 568px;
       width: 100%;
@@ -209,7 +215,7 @@ const BannerV1Wrapper = styled.section`
       }
 
       h3 {
-        font-size: 22px;
+        font-size: 34px;
       }
 
       .coin-info {
