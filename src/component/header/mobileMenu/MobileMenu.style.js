@@ -27,6 +27,7 @@ const MobileMenuStyleWrapper = styled.div`
     }
   }
 
+
   .bithu_mobile_menu_content {
     background: #000000;
     height: 100vh;

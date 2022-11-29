@@ -20,6 +20,7 @@ const Banner = () => {
   const [minted,setMinted] = useState();
   const userCollectionRef = collection(db,"nfts");
   let collectionId;
+
   
   
   const data = async () => {
@@ -51,9 +52,14 @@ const Banner = () => {
       // console.log(doc.id, " => ", doc.data());
       setfireTotal(doc.data().Total);
       setMinted(doc.data().Minted);
-       collectionId = doc.id;
+      collectionId = doc.id;
     }); 
     //  console.log(collectionId,"updoc");
+   
+       let updoc = doc(db,"nfts",collectionId); 
+       if(remaining != minted){
+         await updateDoc(updoc,{"Minted":remaining})
+      }  
     
   };
    getNfts();
@@ -63,11 +69,8 @@ const Banner = () => {
     let totaltMintedItems = await totalMintCount();
     setRemaining(parseInt(totaltMintedItems._hex, 16));
       // await whiteListUser("0x25F8486AC4641DD6e7443B852c0a1032BbC3182a");
-      let updoc = doc(db,"nfts",collectionId); 
-    if(remaining != minted){
-      await updateDoc(updoc,{"Minted":remaining})
-      
-    }  
+     
+    
   };
   
   const mintNowHandle = async () => {

@@ -29,8 +29,8 @@ const MobileMenu = ({ mobileMenuhandle }) => {
     }
   }
   return (
-    <MobileMenuStyleWrapper className="bithu_mobile_menu">
-      <div className="bithu_mobile_menu_content">
+    <MobileMenuStyleWrapper className="bithu_mobile_menu" >
+      <div className="bithu_mobile_menu_content"  >
         <div className="mobile_menu_logo">
           <img className="bithu_logo" src={logo} alt="bithu logo" />
           <button
