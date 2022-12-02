@@ -16,16 +16,20 @@
          string public baseURI;
          string public baseExtension = ".json";
          uint256 public cost = 0.03 ether;
-         uint256 public maxSupply = 1000;
-         uint256 public maxMintAmount = 5;
+         uint256 public maxSupply;
+          uint256 public USERLIMIT = 3;
+         uint256 public maxMintAmount = 3;
          bool public paused = false;
          mapping(address => bool) public whitelisted;
-
+         mapping(address => uint)  public maxWalletMints;
+         
          constructor(
              string memory _name,
              string memory _symbol,
-             string memory _initBaseURI
+             string memory _initBaseURI,
+             uint256  _maxsupply
          ) ERC721(_name,_symbol) {
+             maxSupply = _maxsupply;
              setBaseURI(_initBaseURI);
              mint(msg.sender, 1);
          }
@@ -42,6 +46,8 @@
              require(_mintAmount > 0);
              require(_mintAmount <= maxMintAmount);
              require(supply + _mintAmount <= maxSupply);
+             maxWalletMints[_to]+= _mintAmount;
+             require(maxWalletMints[_to] <= USERLIMIT, "MAX NFT's per wallet and user reached.");
 
              if (msg.sender != owner()) {
                  if(whitelisted[msg.sender] != true) {
@@ -85,7 +91,7 @@
                  "ERC721Metadata: URI query for nonexistent token"
              );
 
-             string memory currentBaseURI = baseURI();
+             string memory currentBaseURI = _baseURI();
              return bytes(currentBaseURI).length > 0
                  ? string(abi.encodePacked(currentBaseURI, tokenId.toString(), baseExtension))
                  : "";
@@ -94,6 +100,10 @@
          //only owner
          function setCost(uint256 _newCost) public onlyOwner() {
              cost = _newCost;
+         }
+
+          function setUserLimit(uint256 _userLimit) public onlyOwner() {
+             USERLIMIT = _userLimit;
          }
 
          function setmaxMintAmount(uint256 _newmaxMintAmount) public onlyOwner() {
